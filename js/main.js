@@ -15,6 +15,10 @@ $(function() {
 	//this is the click listener
   $('.cards').click(function() {
 
+  	if($('.selected').length == 2) {
+  		$('.selected').removeClass('selected');
+  	}
+
   	//this adds the class 'selected' to '.cards', changing its style
 	$(this).addClass('selected');
 
@@ -27,10 +31,16 @@ $(function() {
 		//this is saying: give me the second selected card
 		var card2 = $('.selected:eq(1)').attr('class');
 
+		//this changes the classes if there's a match between 2 cards
 		if(isMatch(card1, card2)) {
 			$('.selected').addClass('matched').removeClass('selected');
 		}
 
+	}
+
+	//end game
+	if($('.matched').length == 4) {
+		console.log('game over!');
 	}
 
 	});
