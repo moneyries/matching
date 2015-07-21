@@ -40,7 +40,9 @@ $(function() {
 
 	//end game
 	if($('.matched').length == 4) {
-		console.log('game over!');
+		alert('Game over! That took you ' + numMoves + ' moves.');
+		$('.matched').removeClass('matched')
+
 	}
 
 	});
